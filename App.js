@@ -17,7 +17,10 @@ class Counter extends Component {
       posY:10,
       velX:2,
       velY:2,
-      img : [require('./img1.png'),require('./img2.png') , require('./img3.png') , require('./img4.png')  ],
+      img : [require('./img1.png'),require('./img2.png') , require('./img3.png') , require('./img4.png')  , require('./img5.png') , require('./img6.png')
+      , require('./img7.png'), require('./img8.png'), require('./img9.png'), require('./img10.png')],
+      legenda : ['Viajar com o carro novo' ,'Essa foto é Paraty' , 'Esqueceram de mim' , 'Ai amor pela milésima vez' , 'Tunico é mais legal' , 'Força do ódio', 'Mascarilda', 'Adoro um carinho ... sqn' , 'Presa fácil' , 'Tie Dye é tendência' ]
+
      }
      this.increment = this.increment.bind(this)
    };
@@ -70,9 +73,7 @@ class Counter extends Component {
 
   // change code above this line
   render() {
-  	//this.setState({
-    //    count: this.state.count + 1,     
-    //});
+
     return (
     	<View style={styles.screenContainer}>
     		
@@ -84,7 +85,13 @@ class Counter extends Component {
     	    	<ImageBackground source={this.state.img[this.state.idx]} style={styles.movel}>			  
 			  	</ ImageBackground>  	
     		</TouchableOpacity>
-    		<Text style={styles.text}>Pontuação: {this.state.count}</Text>
+        <View style={{ height: 30}}> 
+        	<Text style={styles.text}>Pontuação: {this.state.count}</Text>
+        </ View>
+       	<View style={{ height: 30}}> 
+        		<Text style={styles.text2}>{this.state.legenda[this.state.idx]}</Text>
+        </ View>
+       	
     	</ View>
     	);
 
@@ -115,7 +122,8 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
-    justifyContent: "center",
+    flexDirection: 'column',
+    
   },
   appButtonContainer: {
     elevation: 8,
@@ -153,6 +161,16 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     position:'absolute',
     left:10,
-    top:'2%'
+    height: 50,
+   
+  },
+  text2: {
+    color: "red",
+    fontSize: 22,
+    fontWeight: "bold",
+    position:'absolute',
+    left:10,
+    height: 50,
+
   },
 });
